@@ -77,11 +77,22 @@ else
         disp([string(ii) + "個目の投稿"]);
         
         if thisAuthor == "MathWorks Support Team"
-            status = thisAuthor + " からのヒント:「" + thisTitle + "」 -> "  + thisURL + "?s_eid=PSM_29405";
+            status = thisTitle + newline;
+            status = status + newline;
+            status = status + thisAuthor + " からの新着ヒント" + newline;
+            status = status + newline;
+            status = status + "#MATLABAnswers" + newline;
+            status = status + thisURL + "?s_eid=PSM_29405";
         else
-            status = thisAuthor + " さんからの質問:「" + thisTitle + "」 -> "  + thisURL + "?s_eid=PSM_29405";
+            status = thisTitle + newline;
+            status = status + newline;
+            status = status + thisAuthor + " さんからの新着質問" + newline;
+            status = status + newline;
+            status = status + "#MATLABAnswers" + newline;
+            status = status + thisURL + "?s_eid=PSM_29405";
         end
         disp(status);
+        
         try
             py.tweetJPAnswers.tweetV2(status)
         catch ME
